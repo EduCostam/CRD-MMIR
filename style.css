@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+
+*
+
+
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+*,*:after,*:before
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body
+{
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(./fundo.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.snow_wrap
+{
+    background: url(./fundo.png);
+    background-position: center bottom;
+  
+}
+
+.snow,.snow:after,.snow:before
+{
+    content: "";
+    position: absolute;
+    top: -650px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+    radial-gradient(4px 4px at 100px 50px, #fff, transparent),
+    radial-gradient(6px 6px at 200px 150px, #fff, transparent),
+    radial-gradient(3px 3px at 300px 250px, #fff, transparent),
+    radial-gradient(4px 4px at 400px 350px, #fff, transparent),
+    radial-gradient(6px 6px at 500px 100px, #fff, transparent),
+    radial-gradient(3px 3px at 50px 200px, #fff, transparent),
+    radial-gradient(4px 4px at 150px 3000px, #fff, transparent),
+    radial-gradient(6px 6px at 250px 400px, #fff, transparent),
+    radial-gradient(3px 3px at 350px 500px, #fff, transparent);
+    background-size: 650px 650px;
+
+    animation: snowAnim 10s linear;
+    animation-iteration-count: infinite;
+}
+
+.snow:after{
+    margin-left: -250px;
+    opacity: 0.5;
+    filter: blur(2px);
+    animation-direction: reverse;
+    animation-duration: 10s;
+}
+
+@keyframes snowAnim
+{
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(650px);
+    }
+}
+
+.card
+{
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 332px;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+}
+
+.card .poster
+{
+    position: relative;
+    overflow: hidden;
+}
+
+.card .poster::before
+{
+    content: '';
+    position: absolute;
+    bottom: -180px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #2b2d2f 50%, transparent);
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.card:hover .poster::before
+{
+    bottom: 0px;
+}
+
+.card .poster img
+{
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+.card:hover .poster img
+{
+    transform: translateY(-50px);
+    filter: blur(5px);
+}
+
+.card .details
+{
+    position: absolute;
+    bottom: -210px;
+    left: 0;
+    padding: 20px;
+    width: 100%;
+    z-index: 2;
+    transition: 0.5s;
+}
+
+.card:hover .details
+{
+    bottom: 0px;
+}
+
+.card .details .logo
+{
+    max-width: 180px;
+}
+
+.card .details h3
+{
+    font-size: 0.8em;
+    color: #FFFFFF;
+}
+
+.card .details .tags
+{
+    position: relative;
+    margin-top: 5px;
+}
+
+.card .details .tags span
+{
+    padding: 2px 5px;
+    color: #FFFFFF;
+    border-radius: 1px;
+}
+
+.card .details .info
+{
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 50px;
+    height: auto;
+}
